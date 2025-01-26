@@ -4,7 +4,7 @@ Development setup
 Installation
 ------------
 
-A eventyay-videoss installation currently contains four components:
+A eventyay-videos installation currently contains four components:
 
 * A frontend web application with our user interface
 
