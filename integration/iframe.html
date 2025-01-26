@@ -4,12 +4,13 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iframe Guest API &mdash; venueless  documentation</title>
+  <title>Iframe Guest API &mdash; eventyay-video  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,7 +21,6 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Administrator documentation" href="../admin/index.html" />
     <link rel="prev" title="Authentication" href="authentication.html" /> 
@@ -36,7 +36,7 @@
           
           <a href="../index.html">
             
-              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+              <img src="../_static/eventyay-logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -68,7 +68,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">venueless</a>
+          <a href="../index.html">eventyay-video</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -89,11 +89,11 @@
              
   <section id="iframe-guest-api">
 <h1>Iframe Guest API<a class="headerlink" href="#iframe-guest-api" title="Permalink to this heading"></a></h1>
-<p>Venueless rooms can contain arbitrary iframes. This is often used for embedding third-party applications or static
-content. Venueless exposes a few ways for those iframes to interact with the main application if desired.</p>
+<p>Eventyay video rooms can contain arbitrary iframes. This is often used for embedding third-party applications or static
+content. Eventyay exposes a few ways for those iframes to interact with the main application if desired.</p>
 <section id="url-parameters">
 <h2>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading"></a></h2>
-<p>The target URL of the iframe may contain parameters that will be expanded by venueless. For example, if you want
+<p>The target URL of the iframe may contain parameters that will be expanded by eventyay-video. For example, if you want
 to prefill the name of the user in a third-party application, you could use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://other-application.com/embed?name={display_name}
 </pre></div>
@@ -112,7 +112,7 @@ impersonate them easily.</p>
 </section>
 <section id="routing">
 <h2>Routing<a class="headerlink" href="#routing" title="Permalink to this heading"></a></h2>
-<p>You can route the user to a different location in venueless by sending a JavaScript message to the main application.
+<p>You can route the user to a different location in eventyay-video by sending a JavaScript message to the main application.
 An example that moves the user to a room with a specific ID would look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">postMessage</span><span class="p">(</span>
     <span class="p">{</span>
@@ -129,7 +129,7 @@ An example that moves the user to a room with a specific ID would look like this
 <p>The <code class="docutils literal notranslate"><span class="pre">location</span></code> needs to be a valid location as defined by the <a class="reference external" href="https://router.vuejs.org/guide/essentials/navigation.html#router-push-location-oncomplete-onabort">Vue Router API</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The exact naming of all routes inside Venueless as well as the exact version of Vue Router we’re using are not
+<p>The exact naming of all routes inside Eventyay as well as the exact version of Vue Router we’re using are not
 considered stable APIs and might change in the future. Simple routes to a specific room such as the one in the
 example above should be safe for the future.</p>
 </div>
@@ -147,7 +147,13 @@ example above should be safe for the future.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, venueless project.</p>
+<jinja2.runtime.BlockReference object at 0x7f237f85d090>
+<div class="footer">
+    <p>
+        &copy; 2025 <a href='https://github.com/fossasia/eventyay-video/blob/development/LICENSE' target='_blank'>Apache 2.0 License</a> by <a href='https://github.com/fossasia/eventyay-video/graphs/contributors' target='_blank'>contributors</a>
+    </p>
+</div>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

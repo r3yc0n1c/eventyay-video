@@ -4,12 +4,13 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webapp Configuration &mdash; venueless  documentation</title>
+  <title>Webapp Configuration &mdash; eventyay-video  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,7 +21,6 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
@@ -34,7 +34,7 @@
           
           <a href="../index.html">
             
-              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+              <img src="../_static/eventyay-logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -58,7 +58,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">venueless</a>
+          <a href="../index.html">eventyay-video</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -78,18 +78,18 @@
              
   <section id="webapp-configuration">
 <h1>Webapp Configuration<a class="headerlink" href="#webapp-configuration" title="Permalink to this heading"></a></h1>
-<p>The webapp can be statically configured by defining <code class="code docutils literal notranslate"><span class="pre">window.venueless</span></code> before startup.
+<p>The webapp can be statically configured by defining <code class="code docutils literal notranslate"><span class="pre">window.eventyay</span></code> before startup.
 For example, add the following to the <code class="code docutils literal notranslate"><span class="pre">index.html</span></code> you are serving:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">venueless</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;api&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;socket&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;wss://sample.demo.venueless.org/ws/world/sample/&quot;</span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;features&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]}&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">eventyay</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;api&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;socket&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;wss://sample.demo.eventyay-video.org/ws/world/sample/&quot;</span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;features&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]}&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <section id="full-configuration">
 <h2>Full configuration<a class="headerlink" href="#full-configuration" title="Permalink to this heading"></a></h2>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">        </span><span class="s2">&quot;api&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;base&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://sample.demo.venueless.org/api/world/sample/&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;socket&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;wss://sample.demo.venueless.org/ws/world/sample/&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;upload&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://sample.demo.venueless.org/storage/upload/&quot;</span>
+<span class="w">                </span><span class="s2">&quot;base&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://sample.demo.eventyay-video.org/api/world/sample/&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;socket&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;wss://sample.demo.eventyay-video.org/ws/world/sample/&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;upload&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://sample.demo.eventyay-video.org/storage/upload/&quot;</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="s2">&quot;features&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="c1">// enable experimental features,</span>
 <span class="w">        </span><span class="s2">&quot;locale&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// DEPRECTATED, alias of defaultLocale</span>
@@ -164,7 +164,13 @@ This shows ONLY the content of the currently pinned question (and updates if any
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, venueless project.</p>
+<jinja2.runtime.BlockReference object at 0x7f237fb93a90>
+<div class="footer">
+    <p>
+        &copy; 2025 <a href='https://github.com/fossasia/eventyay-video/blob/development/LICENSE' target='_blank'>Apache 2.0 License</a> by <a href='https://github.com/fossasia/eventyay-video/graphs/contributors' target='_blank'>contributors</a>
+    </p>
+</div>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

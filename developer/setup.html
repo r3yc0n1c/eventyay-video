@@ -4,12 +4,13 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Development setup &mdash; venueless  documentation</title>
+  <title>Development setup &mdash; eventyay-video  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,7 +21,6 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Internal API" href="api/index.html" />
     <link rel="prev" title="Developer documentation" href="index.html" /> 
@@ -36,7 +36,7 @@
           
           <a href="../index.html">
             
-              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+              <img src="../_static/eventyay-logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -71,7 +71,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">venueless</a>
+          <a href="../index.html">eventyay-video</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -94,7 +94,7 @@
 <h1>Development setup<a class="headerlink" href="#development-setup" title="Permalink to this heading"></a></h1>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
-<p>A venueless installation currently contains four components:</p>
+<p>A eventyay-videoss installation currently contains four components:</p>
 <ul class="simple">
 <li><p>A frontend web application with our user interface</p></li>
 <li><p>A server application exposing our API</p></li>
@@ -135,22 +135,22 @@ if everything still works:</p>
 Any pull requests you send us will automatically be checked against these rules.</p>
 <p>To check locally, it is convenient to have a local Python environment (such as a virtual environemnt) in which you
 can install the dependencies of the server component:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venueless) $ cd server
-(venueless) $ pip install -r requirements.txt
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(eventyay-video) $ cd server
+(eventyay-video) $ pip install -r requirements.txt
 </pre></div>
 </div>
 <p>To auto-format the code according to the code style and to check for linter issues, you can run the following
 commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venueless) $ black venueless tests
-(venueless) $ isort -rc venueless tests
-(venueless) $ flake8 venueless tests
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(eventyay-video) $ black eventyay-video tests
+(eventyay-video) $ isort -rc eventyay-video tests
+(eventyay-video) $ flake8 eventyay-video tests
 </pre></div>
 </div>
 <p>To automatically check before commits, add a script like the following to <code class="docutils literal notranslate"><span class="pre">.git/hooks/pre-commit</span></code> and apply <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">.git/hooks/pre-commit</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-source ~/.virtualenvs/venueless/bin/activate
+source ~/.virtualenvs/eventyay-video/bin/activate
 cd server
-for file in $(git diff --cached --name-only | grep -E &#39;\.py$&#39; | grep -Ev &quot;venueless/celery_app\.py|venueless/settings\.py&quot;)
+for file in $(git diff --cached --name-only | grep -E &#39;\.py$&#39; | grep -Ev &quot;eventyay-video/celery_app\.py|eventyay-video/settings\.py&quot;)
 do
   echo Scanning $file
   git show &quot;:$file&quot; | black -q --check - || { echo &quot;Black failed.&quot;; exit 1; } # we only want to lint the staged changes, not any un-staged changes
@@ -182,7 +182,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </pre></div>
 </div>
 </li>
-<li><p>Create a config file named <em>venueless.cfg</em> in the <em>server</em> directory with the following content:</p>
+<li><p>Create a config file named <em>eventyay_video.cfg</em> in the <em>server</em> directory with the following content:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[database]</span>
 <span class="na">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">postgresql</span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">eventyay-video</span>
@@ -220,7 +220,13 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, venueless project.</p>
+<jinja2.runtime.BlockReference object at 0x7f237f7817d0>
+<div class="footer">
+    <p>
+        &copy; 2025 <a href='https://github.com/fossasia/eventyay-video/blob/development/LICENSE' target='_blank'>Apache 2.0 License</a> by <a href='https://github.com/fossasia/eventyay-video/graphs/contributors' target='_blank'>contributors</a>
+    </p>
+</div>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

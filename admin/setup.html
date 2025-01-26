@@ -4,12 +4,13 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation guide &mdash; venueless  documentation</title>
+  <title>Installation guide &mdash; eventyay-video  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,7 +21,6 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Management commands" href="management.html" />
     <link rel="prev" title="Administrator documentation" href="index.html" /> 
@@ -36,7 +36,7 @@
           
           <a href="../index.html">
             
-              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+              <img src="../_static/eventyay-logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -77,7 +77,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">venueless</a>
+          <a href="../index.html">eventyay-video</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -98,16 +98,16 @@
              
   <section id="installation-guide">
 <h1>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this heading"></a></h1>
-<p>This guide describes the installation of a small-scale installation of venueless using docker. By small-scale, we mean
+<p>This guide describes the installation of a small-scale installation of eventyay-video using docker. By small-scale, we mean
 that everything is being run on one host, and you don’t expect many thousands of participants for your events.
-It is absolutely possible to run venueless without docker if you have some experience working with Django and JavaScript
-projects, but we currently do not provide any documentation or support for it. At this time, venueless is a young,
+It is absolutely possible to run eventyay-video without docker if you have some experience working with Django and JavaScript
+projects, but we currently do not provide any documentation or support for it. At this time, eventyay-video is a young,
 fast-moving project, and we do not have the capacity to keep multiple different setup guides up to date.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>venueless is still a work in progress and anything about deploying it might change. While we tried to
-give a good tutorial here, installing venueless will <strong>require solid Linux experience</strong> to get it right, and
-venueless is only really useful in combination with other pieces of software (eg. BigBlueButton, live streaming servers, …)
+<p>eventyay-video is still a work in progress and anything about deploying it might change. While we tried to
+give a good tutorial here, installing eventyay-video will <strong>require solid Linux experience</strong> to get it right, and
+eventyay-video is only really useful in combination with other pieces of software (eg. BigBlueButton, live streaming servers, …)
 which are not explained here and complex to install on their own. If this is too much for you, please
 <strong>reach out to hello&#64;venueless.org</strong> to talk about commercial support or our SaaS offering.</p>
 </div>
@@ -124,12 +124,12 @@ installation guides):</p>
 <li><p>A <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-debian-10">redis</a> server</p></li>
 </ul>
 <p>This guide will assume PostgreSQL and redis are running on the host system. You can of course run them as docker
-containers as well if you prefer, you just need to adjust the hostnames in venueless’ configuration file.
-We also recommend that you use a firewall, although this is not a venueless-specific recommendation. If you’re new to
+containers as well if you prefer, you just need to adjust the hostnames in eventyay-video’ configuration file.
+We also recommend that you use a firewall, although this is not a eventyay-specific recommendation. If you’re new to
 Linux and firewalls, we recommend that you start with <a class="reference external" href="https://en.wikipedia.org/wiki/Uncomplicated_Firewall">ufw</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please, do not run venueless without HTTPS encryption. You’ll handle user data and thanks to <a class="reference external" href="https://letsencrypt.org/">Let’s Encrypt</a>
+<p>Please, do not run eventyay-video without HTTPS encryption. You’ll handle user data and thanks to <a class="reference external" href="https://letsencrypt.org/">Let’s Encrypt</a>
 SSL certificates can be obtained for free these days. We also <em>do not</em> provide support for HTTP-only
 installations except for evaluation purposes.</p>
 </div>
@@ -141,10 +141,10 @@ all lines prepended with a <code class="docutils literal notranslate"><span clas
 </section>
 <section id="data-files">
 <h2>Data files<a class="headerlink" href="#data-files" title="Permalink to this heading"></a></h2>
-<p>First of all, you need to create a directory on your server that venueless can use to store files such as logs and make
-that directory writable to the user that runs venueless inside the docker container:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># mkdir /var/venueless-data
-# chown -R 15371:15371 /var/venueless-data
+<p>First of all, you need to create a directory on your server that eventyay-video can use to store files such as logs and make
+that directory writable to the user that runs eventyay-video inside the docker container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># mkdir /var/eventyay-video-data
+# chown -R 15371:15371 /var/eventyay-video-data
 </pre></div>
 </div>
 </section>
@@ -152,8 +152,8 @@ that directory writable to the user that runs venueless inside the docker contai
 <h2>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h2>
 <p>Next, we need a database and a database user. We can create these with any kind of database managing tool or directly on
 your <code class="docutils literal notranslate"><span class="pre">psql</span></code> shell:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sudo -u postgres createuser -P venueless
-# sudo -u postgres createdb -O venueless venueless
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sudo -u postgres createuser -P eventyay-video
+# sudo -u postgres createdb -O eventyay-video eventyay-video
 </pre></div>
 </div>
 <p>Make sure that your database listens on the network. If PostgreSQL runs on the same host as docker, but not inside a
@@ -164,7 +164,7 @@ docker container, we recommend that you just listen on the Docker interface by c
 </div>
 <p>You also need to add a new line to <code class="docutils literal notranslate"><span class="pre">/etc/postgresql/&lt;version&gt;/main/pg_hba.conf</span></code> to allow network connections to this
 user and database:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host    venueless          venueless          172.17.0.1/16           md5
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host    eventyay-video          eventyay-video          172.17.0.1/16           md5
 </pre></div>
 </div>
 <p>Restart PostgreSQL after you changed these files:</p>
@@ -189,22 +189,22 @@ requirepass mysecurepassword
 </section>
 <section id="config-file">
 <h2>Config file<a class="headerlink" href="#config-file" title="Permalink to this heading"></a></h2>
-<p>We now create a config directory and config file for venueless:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># mkdir /etc/venueless
-# touch /etc/venueless/venueless.cfg
-# chown -R 15371:15371 /etc/venueless/
-# chmod 0700 /etc/venueless/venueless.cfg
+<p>We now create a config directory and config file for eventyay-video:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># mkdir /etc/eventyay-video
+# touch /etc/eventyay-video/eventyay-video.cfg
+# chown -R 15371:15371 /etc/eventyay-video/
+# chmod 0700 /etc/eventyay-video/eventyay-video.cfg
 </pre></div>
 </div>
-<p>Fill the configuration file <code class="docutils literal notranslate"><span class="pre">/etc/venueless/venueless.cfg</span></code> with the following content (adjusted to your environment):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[venueless]
-url=https://venueless.mydomain.com
+<p>Fill the configuration file <code class="docutils literal notranslate"><span class="pre">/etc/eventyay-video/eventyay-video.cfg</span></code> with the following content (adjusted to your environment):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[eventyay-video]
+url=https://eventyay-video.mydomain.com
 short_url=https://shorturl.com
 
 [database]
 backend=postgresql
-name=venueless
-user=venueless
+name=eventyay-video
+user=eventyay-video
 ; Replace with the password you chose above
 password=*********
 ; In most docker setups, 172.17.0.1 is the address of the docker host. Adjuts
@@ -222,14 +222,14 @@ auth=mysecurepassword
 </section>
 <section id="docker-image-and-service">
 <h2>Docker image and service<a class="headerlink" href="#docker-image-and-service" title="Permalink to this heading"></a></h2>
-<p>First of all, download the latest venueless image by running:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker pull venueless/venueless:stable
+<p>First of all, download the latest eventyay-video image by running:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker pull eventyay-video/eventyay-video:stable
 </pre></div>
 </div>
 <p>We recommend starting the docker container using systemd to make sure it runs correctly after a reboot. Create a file
-named <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/venueless.service</span></code> with the following content:</p>
+named <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/eventyay-video.service</span></code> with the following content:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Unit]
-Description=venueless
+Description=eventyay-video
 After=docker.service
 Requires=docker.service
 
@@ -238,10 +238,10 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill %n
 ExecStartPre=-/usr/bin/docker rm %n
 ExecStart=/usr/bin/docker run --name %n -p 8002:80 \
-    -v /var/venueless-data:/data \
-    -v /etc/venueless:/etc/venueless \
+    -v /var/eventyay-video-data:/data \
+    -v /etc/eventyay-video:/etc/eventyay-video \
     --sysctl net.core.somaxconn=4096 \
-    venueless/venueless:stable all
+    eventyay-video/eventyay-video:stable all
 ExecStop=/usr/bin/docker stop %n
 
 [Install]
@@ -250,24 +250,24 @@ WantedBy=multi-user.target
 </div>
 <p>You can now run the following commands to enable and start the service:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl daemon-reload
-# systemctl enable venueless
-# systemctl start venueless
+# systemctl enable eventyay-video
+# systemctl start eventyay-video
 </pre></div>
 </div>
 </section>
 <section id="ssl">
 <h2>SSL<a class="headerlink" href="#ssl" title="Permalink to this heading"></a></h2>
-<p>The following snippet is an example on how to configure a nginx proxy for venueless:</p>
+<p>The following snippet is an example on how to configure a nginx proxy for eventyay-video:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>server {
     listen 80 default_server;
     listen [::]:80 ipv6only=on default_server;
-    server_name venueless.mydomain.com;
+    server_name eventyay-video.mydomain.com;
     return 301 https://$host$request_uri;
 }
 server {
     listen 443 default_server;
     listen [::]:443 ipv6only=on default_server;
-    server_name venueless.mydomain.com;
+    server_name eventyay-video.mydomain.com;
 
     ssl on;
     ssl_certificate /path/to/cert.chain.pem;
@@ -293,21 +293,21 @@ server {
 </section>
 <section id="create-your-world">
 <h2>Create your world<a class="headerlink" href="#create-your-world" title="Permalink to this heading"></a></h2>
-<p>Everything in venueless happens in a <strong>world</strong>. A world basically represents your digital event, with everything it includes:
+<p>Everything in eventyay-video happens in a <strong>world</strong>. A world basically represents your digital event, with everything it includes:
 Users, settings, rooms, and so on.</p>
 <p>To create your first world, execute the following command and answer its questions.
 Right now, every world needs its own domain to run on:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker exec -it venueless.service venueless create_world
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker exec -it eventyay-video.service eventyay-video create_world
 Enter the internal ID for the new world (alphanumeric): myevent2020
 Enter the title for the new world: My Event 2020
-Enter the domain of the new world (e.g. myevent.example.org): venueless.mydomain.com
+Enter the domain of the new world (e.g. myevent.example.org): eventyay-video.mydomain.com
 World created.
-Default API keys: [{&#39;issuer&#39;: &#39;any&#39;, &#39;audience&#39;: &#39;venueless&#39;, &#39;secret&#39;: &#39;zvB7hI28vbrI7KtsRnJ1TZBSN3DvYdoy9VoJGLI1ouHQP5VtRG3U6AgKJ9YOqKNU&#39;}]
+Default API keys: [{&#39;issuer&#39;: &#39;any&#39;, &#39;audience&#39;: &#39;eventyay-video&#39;, &#39;secret&#39;: &#39;zvB7hI28vbrI7KtsRnJ1TZBSN3DvYdoy9VoJGLI1ouHQP5VtRG3U6AgKJ9YOqKNU&#39;}]
 </pre></div>
 </div>
-<p>That’s it! You should now be able to access venueless on the configured domain. To get access to the administration
+<p>That’s it! You should now be able to access eventyay-video on the configured domain. To get access to the administration
 web interface, you first need to create a user:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker exec -it venueless.service venueless createsuperuser
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker exec -it eventyay-video.service eventyay-video createsuperuser
 </pre></div>
 </div>
 <p>Then, open <code class="docutils literal notranslate"><span class="pre">/control/</span></code> on your own domain and log in.</p>
@@ -316,11 +316,11 @@ web interface, you first need to create a user:</p>
 <h2>Cronjobs<a class="headerlink" href="#cronjobs" title="Permalink to this heading"></a></h2>
 <p>If you have multiple BigBlueButton servers, you should add a cronjob that polls the current meeting and user numbers for
 the BBB servers to update the load balancer’s cost function:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* * * * *   docker exec venueless.service venueless bbb_update_cost
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* * * * *   docker exec eventyay-video.service eventyay-video bbb_update_cost
 </pre></div>
 </div>
 <p>Also, the following cronjob performs various cleanup tasks:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*/10 * * * *   docker exec venueless.service venueless cleanup
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*/10 * * * *   docker exec eventyay-video.service eventyay-video cleanup
 </pre></div>
 </div>
 </section>
@@ -331,8 +331,8 @@ the BBB servers to update the load balancer’s cost function:</p>
 <p>While we try hard not to break things, <strong>please perform a backup before every upgrade</strong>.</p>
 </div>
 <p>Updates are fairly simple, but require at least a short downtime:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># docker pull venueless/venueless:stable
-# systemctl restart venueless.service
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># docker pull eventyay-video/eventyay-video:stable
+# systemctl restart eventyay-video.service
 </pre></div>
 </div>
 <p>Restarting the service can take a few seconds, especially if the update requires changes to the database.</p>
@@ -350,7 +350,13 @@ the BBB servers to update the load balancer’s cost function:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, venueless project.</p>
+<jinja2.runtime.BlockReference object at 0x7f237fd0d110>
+<div class="footer">
+    <p>
+        &copy; 2025 <a href='https://github.com/fossasia/eventyay-video/blob/development/LICENSE' target='_blank'>Apache 2.0 License</a> by <a href='https://github.com/fossasia/eventyay-video/graphs/contributors' target='_blank'>contributors</a>
+    </p>
+</div>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
